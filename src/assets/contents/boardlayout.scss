@@ -1,0 +1,135 @@
+//board style
+$cell: 30px;
+$borad-bg-color: #0eb83a;
+$borad--border-color: #dedede;
+$pieces-margin: 2.5px;
+$pieces-opactiy: 0.25;
+.cursor {
+  cursor: pointer;
+}
+.pieces-demo {
+  display: inline-block;
+  border-radius: 50%;
+  height: $cell;
+  width: $cell;
+  &--black {
+    background-image: radial-gradient(#636363, #0a0a0a);
+  }
+  &--white {
+    background-image: radial-gradient(#f9f9f9, #d1d1d1);
+  }
+}
+
+.container {
+  padding: 20px;
+  background-color: $borad-bg-color;
+  border-radius: 4px;
+  width: $cell * 14;
+  margin: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.board {
+  font-size: 0;
+  position: relative;
+  &__border {
+    background-color: transparent;
+    &--l {
+      height: $cell;
+      border: 1px solid $borad--border-color;
+      box-sizing: border-box;
+      border-right: 0;
+      border-bottom: 0;
+      &:after {
+        content: '';
+        display: block;
+        border: solid 1px $borad--border-color;
+        border-top: 0;
+        border-left: 0;
+        height: 100%;
+      }
+    }
+    &--inside {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+    &--v {
+      display: inline-block;
+      width: $cell;
+      height: 100%;
+      &:after {
+        content: '';
+        display: block;
+        border-right: solid 1px $borad--border-color;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.pieces {
+  display: inline-block;
+  border-radius: 50%;
+  height: $cell - $pieces-margin * 2;
+  width: $cell - $pieces-margin * 2;
+  margin: $pieces-margin;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    cursor: pointer;
+    opacity: $pieces-opactiy;
+    .turn-black & {
+      background-image: radial-gradient(#636363, #0a0a0a);
+    }
+    .turn-white & {
+      background-image: radial-gradient(#f9f9f9, #d1d1d1);
+    }
+  }
+
+  &--prev {
+    border: solid 2px red;
+    box-sizing: border-box;
+  }
+
+  &--container {
+    position: absolute;
+    width: $cell * 15;
+    z-index: 10;
+    margin-left: -1 * $pieces-margin;
+    margin-top: -1 * $pieces-margin;
+    line-height: 0;
+  }
+  //   &--position {
+
+  //   }
+  &.pieces--black {
+    cursor: auto;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    background-image: radial-gradient(#636363, #0a0a0a) !important;
+  }
+  &.pieces--white {
+    cursor: auto;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    background-image: radial-gradient(#f9f9f9, #d1d1d1) !important;
+  }
+}
+
+.reset__lich.pieces:hover {
+  transform: translate(-50%, -50%);
+  cursor: inherit;
+  opacity: inherit;
+  .turn-black & {
+    background-image: none;
+  }
+  .turn-white & {
+    background-image: none;
+  }
+}

@@ -1,0 +1,48 @@
+//tip消息框
+.msg {
+  &--container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+  &--header {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    background: -webkit-linear-gradient(top, #d2d2d2, #a9a9a9);
+    border-radius: 10px 10px 0 0;
+    margin-top: -32px;
+  }
+  &--title {
+    color: #303030;
+    font: bold 1.3em/1.5em 'Cabin';
+    text-shadow: 0 1px 1px #d2d2d2;
+  }
+  &--wrap {
+    color: #fff;
+    background-color: #27252c;
+    background: -webkit-linear-gradient(top, #27252c, #34323b);
+    min-width: 400px;
+    min-height: 80px;
+    border-radius: 0 0 10px 10px;
+    border-top: 2px solid #43404c;
+    text-align: center;
+    box-shadow: 0 18px 55px rgba(#000, 0.6);
+  }
+  &--text {
+    color: inherit;
+  }
+  &--close {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    color: #303030;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+    }
+  }
+}
